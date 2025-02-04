@@ -1,0 +1,14 @@
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.AssemblyInfoInputs.cache
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.AssemblyInfo.cs
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.csproj.CoreCompileInputs.cache
+C:\Workspace\C#Personal_Task\C#Personal_Task\bin\Debug\net6.0\C#Personal_Task.exe
+C:\Workspace\C#Personal_Task\C#Personal_Task\bin\Debug\net6.0\C#Personal_Task.deps.json
+C:\Workspace\C#Personal_Task\C#Personal_Task\bin\Debug\net6.0\C#Personal_Task.runtimeconfig.json
+C:\Workspace\C#Personal_Task\C#Personal_Task\bin\Debug\net6.0\C#Personal_Task.dll
+C:\Workspace\C#Personal_Task\C#Personal_Task\bin\Debug\net6.0\C#Personal_Task.pdb
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.dll
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\refint\C#Personal_Task.dll
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.pdb
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\C#Personal_Task.genruntimeconfig.cache
+C:\Workspace\C#Personal_Task\C#Personal_Task\obj\Debug\net6.0\ref\C#Personal_Task.dll
