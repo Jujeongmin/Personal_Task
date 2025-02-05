@@ -6,18 +6,18 @@ namespace C_Personal_Task
 
     internal class Program
     {
-        static int chadChoice;
-        static int mainChoice;
-        static int save;
+        static int chadChoice; // 직업선택
+        static int mainChoice; // 마을에서의 선택
+        static int save; // 닉네임 저장
 
 
 
-        static List<Item> inventory = new List<Item>();
-        static int playerGold = 1500;
-        static string nickName;
-        static int baseHP = 100;
+        static List<Item> inventory = new List<Item>(); // 아이템 목록
+        static int playerGold = 1500;  // 보유 금액
+        static string nickName;  //  내 닉네임
+        static int baseHP = 100; // 기초체력
 
-        static List<Item> shopItems = new List<Item>
+        static List<Item> shopItems = new List<Item>  // 아이템 목록
         {
             new Item("수련자 갑옷", "방어", 5, "수련에 도움을 주는 갑옷입니다.", false, 1000),
             new Item("무쇠갑옷", "방어", 9, "무쇠로 만들어져 튼튼한 갑옷입니다.", true, 0), // 구매완료
@@ -47,7 +47,7 @@ namespace C_Personal_Task
 
                 if (int.TryParse(Console.ReadLine(), out save))
                 {
-                    if (save == 1) // 저장 했을 시
+                    if (save == 1) // 닉네임 저장 했을 시
                     {
                         Console.Clear();
                         Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
@@ -89,7 +89,7 @@ namespace C_Personal_Task
 
 
 
-            while (true)
+            while (true) // 직업 저장 후 마을 이동
             {
                 Console.Clear();
                 Console.WriteLine($"스파르타 마을에 오신 {nickName}님 환영합니다.");
@@ -114,7 +114,9 @@ namespace C_Personal_Task
                     }
                     else if (mainChoice == 4) // 던전입장
                     {
-
+                        Console.WriteLine("죄송합니다. 구현중입니다...");
+                        Console.WriteLine("\n마을로 돌아가려면 아무 키나 누르십시오.");
+                        Console.ReadKey();
                     }
                     else if (mainChoice == 5) // 휴식하기
                     {
@@ -122,12 +124,18 @@ namespace C_Personal_Task
                     }
                     else // 잘못된 숫자 입력 시
                     {
-                        Console.WriteLine("\n잘못된 입력입니다. 1 에서 3의 숫자를 입력해주세요.");
+                        Console.Clear();
+                        Console.WriteLine("\n잘못된 입력입니다. 1 에서 5의 숫자를 입력해주세요.");
+                        Console.WriteLine("\n마을로 돌아가려면 아무 키나 누르십시오.");
+                        Console.ReadKey();
                     }
                 }
                 else // 문자 입력 시
                 {
+                    Console.Clear();
                     Console.WriteLine("\n잘못된 입력입니다. 숫자를 입력해주세요.");
+                    Console.WriteLine("\n마을로 돌아가려면 아무 키나 누르십시오.");
+                    Console.ReadKey();
                 }
             }
         }
@@ -149,16 +157,16 @@ namespace C_Personal_Task
                     if (item.Type == "방어") defenseBonus += item.StatBonus;
                 }
             }
-            while (true)
+            while (true)  // 상태보기 창
             {
                 Console.Clear();
                 Console.WriteLine("상태 보기\n캐릭터의 정보가 표시됩니다.\n");
                 Console.WriteLine("Lv. 01");
-                if (chadChoice == 1)
+                if (chadChoice == 1) // 전사 선택
                 {
                     Console.WriteLine($"Chad ( 전사 )");
                 }
-                else
+                else  // 도적 선택
                 {
                     Console.WriteLine($"Chad ( 도적 )");
                 }
@@ -168,11 +176,11 @@ namespace C_Personal_Task
                 Console.WriteLine($"Gold : {playerGold} G\n");
                 Console.WriteLine("0. 나가기\n");
                 Console.WriteLine("원하시는 행동을 입력해주세요.\n>>");
-                if (int.TryParse(Console.ReadLine(), out int statusChoice))
+                if (int.TryParse(Console.ReadLine(), out int statusChoice)) // 상태보기에서 선택
                 {
-                    if (statusChoice == 0)
+                    if (statusChoice == 0) // 마을로 돌아가기
                     {
-                        break;
+                        break; 
                     }
                 }
             }
@@ -180,19 +188,19 @@ namespace C_Personal_Task
 
         static void ManageInventory() // 인벤토리
         {
-            while (true)
+            while (true) // 인벤토리 창
             {
                 Console.Clear();
                 Console.WriteLine("인벤토리\n보유 중인 아이템을 관리할 수 있습니다.\n");
                 Console.WriteLine("[아이템 목록]");
 
-                if (inventory.Count == 0)
+                if (inventory.Count == 0) // 아이템이 없을 때
                 {
                     Console.WriteLine("보유 중인 아이템이 없습니다.\n");
                 }
-                else
+                else // 아이템이 있을 때
                 {
-                    for (int i = 0; i < inventory.Count; i++)
+                    for (int i = 0; i < inventory.Count; i++) // 아이템 표시
                     {
                         var item = inventory[i];
                         Console.WriteLine($"- {(inventory[i].IsEquipped ? "[E]" : "")}{item.Name} | {item.Type} +{item.StatBonus} | {item.Description}");
@@ -202,13 +210,13 @@ namespace C_Personal_Task
                 Console.WriteLine("\n1. 장착 관리\n0. 나가기\n");
                 Console.WriteLine("원하시는 행동을 입력해주세요.\n>>");
 
-                if (int.TryParse(Console.ReadLine(), out int choice))
+                if (int.TryParse(Console.ReadLine(), out int invenChoice)) // 인벤토리창에서 선택
                 {
-                    if (choice == 0)
+                    if (invenChoice == 0) // 마을로 돌아가기
                     {
                         break;
                     }
-                    else if (choice == 1)
+                    else if (invenChoice == 1) // 인벤토리 - 장착관리로 이동
                     {
                         EquipItems();
                     }
@@ -232,11 +240,12 @@ namespace C_Personal_Task
                 Console.WriteLine("\n0. 나가기\n");
                 Console.WriteLine("원하시는 행동을 입력해주세요.\n>>");
 
+                // 장착 관리에서 선택
                 if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= inventory.Count)
                 {
-                    inventory[choice - 1].ToggleEquip();
+                    inventory[choice - 1].ToggleEquip(); // 아이템 착용 및 해제
                 }
-                else if (choice == 0)
+                else if (choice == 0) // 인벤토리로 돌아가기
                 {
                     break;
                 }
@@ -262,11 +271,11 @@ namespace C_Personal_Task
 
                 if (int.TryParse(Console.ReadLine(), out int choice))
                 {
-                    if (choice == 0) // 나가기
+                    if (choice == 0) // 마을로 돌아가기
                     {
                         break;
                     }
-                    else if (choice == 1) // 상점 - 아이템구매
+                    else if (choice == 1) // 상점 - 아이템구매로 이동
                     {
                         while (true)
                         {
@@ -276,7 +285,7 @@ namespace C_Personal_Task
                             Console.WriteLine("[아이템 목록]");
 
 
-                            for (int i = 0; i < shopItems.Count; i++)
+                            for (int i = 0; i < shopItems.Count; i++) // 아이템 목록
                             {
                                 string priceText = shopItems[i].IsPurchased ? "구매 완료" : $"{shopItems[i].Price} G";
                                 Console.WriteLine($"{i + 1}. {shopItems[i].Name} | {shopItems[i].Type} + {shopItems[i].StatBonus} | {shopItems[i].Description} | {priceText} ");
@@ -286,28 +295,28 @@ namespace C_Personal_Task
                             Console.WriteLine("\n0. 나가기\n");
                             Console.WriteLine("원하시는 행동을 입력해주세요.\n>>");
 
-                            if (int.TryParse(Console.ReadLine(), out int itemChoice))
+                            if (int.TryParse(Console.ReadLine(), out int itemChoice)) // 상점- 구매하기에서 선택
                             {
-                                if (itemChoice == 0)
+                                if (itemChoice == 0) // 상점으로 돌아가기
                                 {
                                     break ;
                                 }
-                                else if (itemChoice > 0 && itemChoice <= shopItems.Count)
+                                else if (itemChoice > 0 && itemChoice <= shopItems.Count)  // 아이템을 구매한다면
                                 {
                                     var selectedItem = shopItems[itemChoice - 1];
 
-                                    if (!selectedItem.IsPurchased && playerGold >= selectedItem.Price)
+                                    if (!selectedItem.IsPurchased && playerGold >= selectedItem.Price) // 구매하기
                                     {
                                         playerGold -= selectedItem.Price;
                                         inventory.Add(new Item(selectedItem.Name, selectedItem.Type, selectedItem.StatBonus, selectedItem.Description, false, 0)); // 구매한 아이템을 인벤토리에 추가
                                         selectedItem.IsPurchased = true;
                                         Console.WriteLine("구매를 완료했습니다.");
                                     }
-                                    else if (selectedItem.IsPurchased)
+                                    else if (selectedItem.IsPurchased) // 이미 구매한 아이템이라면
                                     {
                                         Console.WriteLine("이미 구매한 아이템입니다.");
                                     }
-                                    else
+                                    else // 골드가 부족하다면
                                     {
                                         Console.WriteLine("Gold 가 부족합니다.");
                                     }
@@ -344,9 +353,9 @@ namespace C_Personal_Task
                             Console.WriteLine("\n0. 나가기\n");
                             Console.WriteLine("원하시는 행동을 입력해주세요.\n>>");
 
-                            if (int.TryParse(Console.ReadLine(), out int sellChoice))
+                            if (int.TryParse(Console.ReadLine(), out int sellChoice)) // 상점 - 판매하기에서 선택
                             {
-                                if (sellChoice == 0)
+                                if (sellChoice == 0) // 상점으로 돌아가기
                                 {
                                     break;
                                 }
@@ -366,34 +375,34 @@ namespace C_Personal_Task
                 Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다. (보유 골드 : {playerGold})");
                 Console.WriteLine("\n1. 휴식하기\n0. 나가기");
                 Console.WriteLine("\n원하시는 행동을 입력해주세요.\n>>");
-                if (int.TryParse(Console.ReadLine(), out int breakChoice))
+                if (int.TryParse(Console.ReadLine(), out int breakChoice)) // 휴식하기에서 선택
                 {
-                    if (breakChoice == 1)
+                    if (breakChoice == 1) // 휴식을 한다면
                     {
-                        if (playerGold >= 500)
+                        if (playerGold >= 500) // 플레이어가 500골드 이상 있다면
                         {
-                            if (baseHP < 100)
+                            if (baseHP < 100) // 체력이 100미만이라면
                             {
                                 playerGold -= 500;
                                 baseHP = Math.Min(baseHP + 100, 100);
                                 Console.WriteLine("휴식을 완료했습니다.");
                             }
-                            else
+                            else // 체력이 100미만이 아니라면
                             {
                                 Console.WriteLine("체력이 이미 최대입니다.");
                             }
                             Console.WriteLine("\n계속하려면 아무키나 누르십시오.");
                             Console.ReadKey();
                         }
-                        else
+                        else // 플레이어가 보유골드가 500골드 미만이라면
                         {
                             Console.WriteLine("Gold 가 부족합니다.");
                             Console.WriteLine("\n계속하려면 아무키나 누르십시오.");
                             Console.ReadKey();
                         }
-                        break;
+                        break;  // 마을로 이동
                     }
-                    else if (breakChoice == 0)
+                    else if (breakChoice == 0) // 마을로 이동
                     {
                         break;
                     }
@@ -410,7 +419,7 @@ namespace C_Personal_Task
         }
 
 
-        class Item
+        class Item // 아이템 변수들
         {
             public string Name { get; set; }
             public string Type { get; set; }
@@ -432,9 +441,9 @@ namespace C_Personal_Task
                 IsEquipped = false;
             }
 
-            public void ToggleEquip()
+            public void ToggleEquip() // 아이템 장착
             {
-                IsEquipped = !IsEquipped;
+                IsEquipped = !IsEquipped; // 장착된 아이템이면 해제, 장착되지 않은 아이템이라면 장착
             }
         }
     }
