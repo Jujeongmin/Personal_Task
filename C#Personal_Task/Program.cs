@@ -164,11 +164,11 @@ namespace C_Personal_Task
                 Console.WriteLine("Lv. 01");
                 if (chadChoice == 1) // 전사 선택
                 {
-                    Console.WriteLine($"Chad ( 전사 )");
+                    Console.WriteLine($"{nickName} ( 전사 )");
                 }
                 else  // 도적 선택
                 {
-                    Console.WriteLine($"Chad ( 도적 )");
+                    Console.WriteLine($"{nickName} ( 도적 )");
                 }
                 Console.WriteLine($"공격력 : {baseAttack + attackBonus} (+{attackBonus})");
                 Console.WriteLine($"방어력 : {baseDefense + defenseBonus} (+{defenseBonus})");
